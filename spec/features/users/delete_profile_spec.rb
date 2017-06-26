@@ -17,12 +17,11 @@ feature "user can delete profile" do
     id = user.id
     visit user_path(user)
 
-    expect(page).to have_content "Delete Account"
-    click_link "Delete Account"
-
-    User.exists?(id).should be_falsey
+    click_link 'Delete'
 
     expect(page).to have_current_path(root_path)
+
+    User.exists?(id).should be_falsey
 
   end
 
