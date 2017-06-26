@@ -1,4 +1,3 @@
-source 'https://rubygems.org/'
 source 'https://rubygems.org'
 ruby "2.3.3"
 git_source(:github) do |repo_name|
@@ -45,21 +44,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'rails', '~> 5.0.0'
-gem 'puma', '~> 3.0'
-gem 'jquery-rails'
-group :development do
-  gem 'listen', '~> 3.0.5'
-end
-
-group :development, :test do
-  gem 'factory_girl_rails'
-  gem 'launchy', require: false
-  gem 'rspec-rails', '~> 3.5'
-  gem 'shoulda'
-end
-
-group :production do
-  gem 'rails_12factor'
-end
