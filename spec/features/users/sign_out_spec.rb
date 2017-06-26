@@ -17,11 +17,9 @@ feature 'user signs out' do
     sign_in_as(user)
 
     click_link 'Sign Out'
-
     expect(page).to have_content('Signed out successfully.')
 
     expect(page).to have_content('Sign In')
-    expect(current_user).to   eq(nil)
   end
 
 end

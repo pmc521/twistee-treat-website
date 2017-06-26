@@ -23,12 +23,11 @@ feature "user can edit profile" do
     fill_in 'Current Password', with: 'password'
 
     click_button 'Save Changes'
-
     visit user_path(user)
 
     expect(page).to have_content( 'newexample@email.com')
-    expect(page).to have_cont ent( 'newfirst')
-    expect(page).to have_cont ent( 'newlast')
+    expect(page).to have_content( 'newfirst')
+    expect(page).to have_content( 'newlast')
   end
 
   scenario "user visits profile page and unsuccessfully edits profile" do
@@ -40,7 +39,7 @@ feature "user can edit profile" do
     fill_in 'Email', with: ''
 
     click_button 'Save Changes'
-
+    
     expect(page).to have_content( 'Email is invalid')
     expect(page).to have_content( 'Email can\'t be blank')
     expect(page).to have_content( 'Current password can\'t be blank')
