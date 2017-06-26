@@ -13,7 +13,15 @@
 !/log/.keep
 !/tmp/.keep
 
+/coverage
 /node_modules
 /yarn-error.log
 
 .byebug_history
+.env
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
+
+# Ignore application configuration
+/config/application.yml
