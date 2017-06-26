@@ -6,7 +6,7 @@ feature "user can edit profile" do
     first_name: 'first',
     last_name: 'last',
     email: 'example@email.com',
-    phone_number: "2151234567"
+    phone_number: "2151234567",
     password: 'password',
     password_confirmation: 'password'
   )}
