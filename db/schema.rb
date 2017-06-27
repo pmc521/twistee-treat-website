@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626165633) do
+ActiveRecord::Schema.define(version: 20170626215327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shift_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shift_id", "user_id"], name: "index_schedules_on_shift_id_and_user_id", unique: true
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.string "day", null: false
+    t.string "month", null: false
+    t.string "year", null: false
+    t.string "start", null: false
+    t.string "finish", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

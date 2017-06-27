@@ -1,0 +1,10 @@
+let foods = currentFoods.map(food => {
+  return (
+    debugger
+    <Card
+      key={schedule.id}
+      user={schedule.user}
+      shift={schedule.shift}
+    />
+  );
+});
