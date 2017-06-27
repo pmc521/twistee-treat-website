@@ -16,12 +16,11 @@
 /coverage
 /node_modules
 /yarn-error.log
+/app/assets/javascripts/bundle.js
+/react/coverage
 
 .byebug_history
 .env
 /node_modules
-/app/assets/javascripts/bundle.js
-/react/coverage
-
 # Ignore application configuration
 /config/application.yml

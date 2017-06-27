@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :schedules
+  has_many :shifts, through: :schedules
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :first_name, presence: true
