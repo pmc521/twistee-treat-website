@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   resources :shifts
+  resources :schedules
   root 'home#show'
   devise_for :users
   resources :users
+  resources :simple_calendar
   namespace :api do
     namespace :v1 do
-      resources :schedule
+      resources :schedules
     end
   end
 end

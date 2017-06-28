@@ -1,0 +1,26 @@
+<%= form_with(model: schedule, local: true) do |form| %>
+  <% if schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+      <% schedule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :day, :value => date.day %>
+  <%= form.hidden_field :month, :value => date.month %>
+  <%= form.hidden_field :year, :value => date.year %>
+
+  <%= form.select :user_id1, User.pluck(:first_name, :id) %></br>
+  <%= form.select :user_id2, User.pluck(:first_name, :id) %></br>
+  <%= form.select :user_id3, User.pluck(:first_name, :id) %></br>
+  <%= form.select :user_id4, User.pluck(:first_name, :id) %></br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
