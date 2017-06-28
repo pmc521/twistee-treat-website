@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Day from './Day';
 
 class Schedule extends Component {
   constructor(props) {
@@ -27,12 +28,23 @@ class Schedule extends Component {
 
   render() {
 
+    <div>
+      let days = this.state.schedules.map(schedule => {
+        return (
+          <Day
+          key={schedule.id}
+          schedualId={schedule.id}
+          userId={schedule.user}
+          shiftId={schedule.shift}
+          />
+        );
+      });
+    </div>
 
     return (
-      <div>
-        {this.state.schedules}
+      <div className="food-box">
+        {days}
       </div>
-
     );
   }
 };

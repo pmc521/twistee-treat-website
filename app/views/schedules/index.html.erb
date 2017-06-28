@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <%= week_calendar number_of_weeks: 1 do |date| %>
+  <%= date %>
+    <% newdate = date.to_s[0..4] + date.to_s[5..6].to_i.to_s + date.to_s[7] + date.to_s[8..9].to_i.to_s %>
+    <% Schedule.all.each do |schedule| %>
+      <% scheduledate = (schedule.shift.year + "-" + schedule.shift.month + "-" +  schedule.shift.day) %>
+      <% if  scheduledate == newdate %>
+        <%= schedule.user.first_name %> <%= schedule.user.last_name %>
+        <%= schedule.shift.start %> - <%= schedule.shift.finish %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+<%= link_to 'New Schedule', new_schedule_path %>

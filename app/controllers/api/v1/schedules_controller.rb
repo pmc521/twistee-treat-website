@@ -1,5 +1,5 @@
-class Api::V1::schedulesController < ApplicationController
+class Api::V1::SchedulesController < ApplicationController
   def index
-    render json: Schedules.all
+    render json: Schedule.all
   end
 end
