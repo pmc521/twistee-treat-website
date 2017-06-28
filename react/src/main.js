@@ -6,7 +6,7 @@ import Schedule from './components/Schedule';
 
 $(function() {
   ReactDOM.render(
-    <h1>Boo yaa</h1>,
+    <h1></h1>,
     document.getElementById('app')
   );
 });
