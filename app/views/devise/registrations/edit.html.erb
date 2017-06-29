@@ -13,8 +13,14 @@
     <%= f.label :last_name, "Last Name" %><br />
     <%= f.text_field :last_name %>
   </div>
-
   <div class="field">
+
+    <img class="profile-pic-medium" src="<%= @user.avatar %>" alt="Profile_pic">
+
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
     <%= f.label :phone_number, "Phone Number" %><br />
     <%= f.text_field :phone_number %>
   </div>

@@ -1,12 +1,15 @@
 <h2>User Profile</h2></br>
+
 <div class="medium-4 medium-centered columns">
-   <div class="card">
-     <div class="card-section">
-       <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-       <h6> Email: <%= @user.email %></h6>
-       <h6> Phone: <%= @user.phone_number %></h6>
-       <button type="button" class="button"><%= link_to "Delete Account", user_path(current_user), data: {:confirm => 'Are you sure?'}, :method => :delete  %></button></br>
-       <button type="button" class="button"><%= link_to "Edit Profile", edit_user_registration_path %></button>
+  <div class="card">
+    <div class="card-section">
+      <%= image_tag (@user.avatar) %>
+      <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+      <h6> Email: <%= @user.email %></h6>
+      <h6> Phone: <%= @user.phone_number %></h6>
+      <button type="button" class="button"><%= link_to "Delete Account", user_path(current_user), data: {:confirm => 'Are you really sure?'}, :method => :delete  %></button></br>
+      <button type="button" class="button"><%= link_to "Edit Profile", edit_user_registration_path %></button>
     </div>
   </div>
 </div>
+``
