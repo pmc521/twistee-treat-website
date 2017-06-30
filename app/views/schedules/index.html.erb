@@ -5,7 +5,7 @@
 
 
 <% day_shifts = [] %>
-<%= week_calendar number_of_weeks: 1 do |date| %>
+  <%= week_calendar number_of_weeks: 1 do |date| %>
   <% Schedule.all.each do |schedule| %>
     <% thisdate = date.to_s[0..4] + date.to_s[5..6].to_i.to_s + date.to_s[7] + date.to_s[8..9].to_i.to_s %>
     <% scheduledate = (schedule.shift.year + "-" + schedule.shift.month + "-" +  schedule.shift.day) %>
