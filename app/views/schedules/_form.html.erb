@@ -11,14 +11,34 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :start_date, :value => date %>
   <%= form.hidden_field :day, :value => date.day %>
   <%= form.hidden_field :month, :value => date.month %>
   <%= form.hidden_field :year, :value => date.year %>
 
-  <%= form.select :user_id1, User.pluck(:first_name, :id) %></br>
-  <%= form.select :user_id2, User.pluck(:first_name, :id) %></br>
-  <%= form.select :user_id3, User.pluck(:first_name, :id) %></br>
-  <%= form.select :user_id4, User.pluck(:first_name, :id) %></br>
+  <%= form.select :user1, User.pluck(:first_name, :id), include_blank: true %></br>
+  <%= form.label :user1finish, "Start" %>
+  <%= form.select :user1start, options_for_select(@times, selected=1200) %>
+  <%= form.label :user1finish, "Finish" %>
+  <%= form.select :user1finish, options_for_select(@times, selected=530) %></br><hr>
+
+  <%= form.select :user2, User.pluck(:first_name, :id), include_blank: true %></br>
+  <%= form.label :user2finish, "Start" %>
+  <%= form.select :user2start, options_for_select(@times, selected=500) %>
+  <%= form.label :user2finish, "Finish" %>
+  <%= form.select :user2finish, options_for_select(@times, selected=1000) %></br><hr>
+
+  <%= form.select :user3, User.pluck(:first_name, :id), include_blank: true %></br>
+  <%= form.label :user3finish, "Start" %>
+  <%= form.select :user3start, options_for_select(@times, selected=530) %>
+  <%= form.label :user3finish, "Finish" %>
+  <%= form.select :user3finish, options_for_select(@times, selected=1000) %></br><hr>
+
+  <%= form.select :user4, User.pluck(:first_name, :id), include_blank: true %></br>
+  <%= form.label :user4finish, "Start" %>
+  <%= form.select :user4start, options_for_select(@times, selected=600) %>
+  <%= form.label :user4finish, "Finish" %>
+  <%= form.select :user4finish, options_for_select(@times, selected=100) %></br>
 
   <div class="actions">
     <%= form.submit %>
