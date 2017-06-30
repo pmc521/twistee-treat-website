@@ -15,6 +15,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/new
   def new
     @schedule = Schedule.new
+    @times = Schedule::TIMES
   end
 
   # GET /schedules/1/edit
@@ -27,25 +28,25 @@ class SchedulesController < ApplicationController
     day = params[:schedule][:day]
     month = params[:schedule][:month]
     year = params[:schedule][:year]
-    shift1 = Shift.create(day: day, month: month, year: year, start: "open", finish: '500')
-    shift2 = Shift.create(day: day, month: month, year: year, start: "500", finish: 'close')
-    shift3 = Shift.create(day: day, month: month, year: year, start: "600", finish: 'close')
-    shift4 = Shift.create(day: day, month: month, year: year, start: "630", finish: 'close')
-    user1 = User.find(params[:schedule][:user_id1])
-    user2 = User.find(params[:schedule][:user_id2])
-    user3 = User.find(params[:schedule][:user_id3])
-    user4 = User.find(params[:schedule][:user_id4])
-    schedule1 = Schedule.new(user: user1, shift: shift1)
-    schedule2 = Schedule.new(user: user2, shift: shift2)
-    schedule3 = Schedule.new(user: user3, shift: shift3)
-    schedule4 = Schedule.new(user: user4, shift: shift4)
+    shift1 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user1start], finish: params[:schedule][:user1finish])
+    shift2 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user2start], finish: params[:schedule][:user2finish])
+    shift3 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user3start], finish: params[:schedule][:user3finish])
+    shift4 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user4start], finish: params[:schedule][:user4finish])
+
+    if params[:schedule][:user1] != ""
+      Schedule.create(user: User.find(params[:schedule][:user1]), shift: shift1)
+    end
+    if params[:schedule][:user2] != ""
+      Schedule.create(user: User.find(params[:schedule][:user2]), shift: shift2)
+    end
+    if params[:schedule][:user3] != ""
+      Schedule.create(user: User.find(params[:schedule][:user3]), shift: shift3)
+    end
+    if params[:schedule][:user4] != ""
+      Schedule.create(user: User.find(params[:schedule][:user4]), shift: shift4)
+    end
     respond_to do |format|
-      if schedule1.save && schedule2.save && schedule3.save && schedule4.save
-        format.html { redirect_to schedules_path, notice: 'Schedule was successfully created.' }
-      else
-        format.html { render :new }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to "/schedules?start_date=#{params[:schedule][:start_date]}", notice: 'Schedule was successfully created.' }
     end
   end
 

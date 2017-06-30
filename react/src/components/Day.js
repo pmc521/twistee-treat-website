@@ -6,7 +6,7 @@ class Day extends Component{
   render() {
     return(
           <div>
-            <Shift shift={this.props.shift.} />
+            
           </div>
     )
   }

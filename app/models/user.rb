@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: [:create, :update], presence: true
   validates :admin, default: false
+  mount_uploader :avatar, AvatarUploader
 
   def editable_by?(user_requesting,user_to_be_edited)
     user_requesting == user_to_be_edited || user_requesting.try(:admin?)

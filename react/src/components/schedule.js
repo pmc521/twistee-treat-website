@@ -28,7 +28,6 @@ class Schedule extends Component {
 
   render() {
 
-    <div>
       let days = this.state.schedules.map(schedule => {
         return (
           <Day
@@ -39,7 +38,7 @@ class Schedule extends Component {
           />
         );
       });
-    </div>
+    
 
     return (
       <div className="food-box">

@@ -19,7 +19,7 @@ gem "figaro"
 gem 'fog'
 gem 'net-ssh'
 gem 'jquery-rails'
-gem "simple_calendar", "~> 2.0"
+gem "simple_calendar"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
