@@ -1,25 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Schedules</h1>
+<h2>Schedules</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <%= week_calendar number_of_weeks: 1 do |date| %>
-  <%= date %>
-    <% newdate = date.to_s[0..4] + date.to_s[5..6].to_i.to_s + date.to_s[7] + date.to_s[8..9].to_i.to_s %>
-    <% Schedule.all.each do |schedule| %>
-      <% scheduledate = (schedule.shift.year + "-" + schedule.shift.month + "-" +  schedule.shift.day) %>
-      <% if  scheduledate == newdate %>
-        <%= schedule.user.first_name %> <%= schedule.user.last_name %>
-        <%= schedule.shift.start %> - <%= schedule.shift.finish %>
-      <% end %>
+
+<% day_shifts = [] %>
+<%= week_calendar number_of_weeks: 1 do |date| %>
+  <% Schedule.all.each do |schedule| %>
+    <% thisdate = date.to_s[0..4] + date.to_s[5..6].to_i.to_s + date.to_s[7] + date.to_s[8..9].to_i.to_s %>
+    <% scheduledate = (schedule.shift.year + "-" + schedule.shift.month + "-" +  schedule.shift.day) %>
+    <% if  scheduledate == thisdate %>
+      <% day_shifts << schedule %>
     <% end %>
   <% end %>
+  <% times = Schedule::TIMES %>
 
+  <% if day_shifts != nil %>
+    <% day_shifts = day_shifts.sort_by { |schedule| [times, schedule.shift.start]} %>
+    <% day_shifts.each do |schedule| %>
 
-<%= link_to 'New Schedule', new_schedule_path %>
+      <%= schedule.user.first_name %> <%= schedule.user.last_name %></br>
+      <%= schedule.shift.start %> - <%= schedule.shift.finish %></br><hr>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if params[:start_date] == nil %>
+  <%= link_to 'New Schedule', new_schedule_path %>
+<% else %>
+  <%= link_to 'New Schedule', "/schedules/new?start_date=#{params[:start_date]}" %>
+<% end %>

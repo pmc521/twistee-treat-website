@@ -35,10 +35,16 @@
  }
 
  body {
-   padding-left: 10px;
-   background-color: $twisteepink;
- }
+  //  background-image: url('./pink-with-sprinkles.jpeg');
+  //  /* Full height */
+  //  height: 100%;
+  //  /* Center and scale the image nicely */
+  //  background-position: center;
+  //  background-repeat: no-repeat;
+  //  background-size: cover;
 
+  background-color: twisteepink;
+}
  th {
 
  }
@@ -91,9 +97,6 @@
    font-weight: 700;
  }
 
- .button {
-   color: $twisteeblue;
- }
 
  .pagination li {
    display: inline;
