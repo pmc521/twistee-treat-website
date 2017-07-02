@@ -24,9 +24,7 @@ ActiveRecord::Schema.define(version: 20170626215327) do
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.string "day", null: false
-    t.string "month", null: false
-    t.string "year", null: false
+    t.string "date", null: false
     t.string "start", null: false
     t.string "finish", null: false
     t.datetime "created_at", null: false

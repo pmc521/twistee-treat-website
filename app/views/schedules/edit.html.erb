@@ -1,6 +1,12 @@
 <h1>Editing Schedule</h1>
 
-<%= render 'form', schedule: @schedule %>
+<%= form_with(model: @schedule, local: true) do |form| %>
 
-<%= link_to 'Show', @schedule %> |
-<%= link_to 'Back', schedules_path %>
+
+  <%= form.hidden_field :shift_id, value: @schedule.shift%>
+
+  <%= form.select :user_id, User.all, include_blank: true %>
+  <div class="actions">
+    <%= form.submit "Submit"%>
+  </div>
+<% end %>

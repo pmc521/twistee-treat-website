@@ -4,12 +4,10 @@
 
 
 
-<% day_shifts = [] %>
   <%= week_calendar number_of_weeks: 1 do |date| %>
+    <% day_shifts = [] %>
   <% Schedule.all.each do |schedule| %>
-    <% thisdate = date.to_s[0..4] + date.to_s[5..6].to_i.to_s + date.to_s[7] + date.to_s[8..9].to_i.to_s %>
-    <% scheduledate = (schedule.shift.year + "-" + schedule.shift.month + "-" +  schedule.shift.day) %>
-    <% if  scheduledate == thisdate %>
+    <% if  schedule.shift.date == date.to_s %>
       <% day_shifts << schedule %>
     <% end %>
   <% end %>
@@ -20,7 +18,8 @@
     <% day_shifts.each do |schedule| %>
 
       <%= schedule.user.first_name %> <%= schedule.user.last_name %></br>
-      <%= schedule.shift.start %> - <%= schedule.shift.finish %></br><hr>
+      <%= schedule.shift.start %> - <%= schedule.shift.finish %>
+      <%= link_to 'edit', edit_schedule_path(schedule) %></br><hr>
     <% end %>
   <% end %>
 <% end %>
