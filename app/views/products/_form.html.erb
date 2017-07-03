@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= form.label :catagorie %>
-    <%= form.select :catagorie, options_for_select(@catagories) %>
+    <%= form.select :catagorie, options_for_select(@catagories), include_blank: true %>
   </div>
 
   <div class="field">
