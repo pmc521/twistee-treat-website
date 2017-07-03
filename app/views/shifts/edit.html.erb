@@ -4,3 +4,9 @@
 
 <%= link_to 'Show', @shift %> |
 <%= link_to 'Back', shifts_path %>
+<!-- use this to edit shifts
+
+<%= form.label :start %>
+<%= form.select :start, options_for_select(@times, selected=@schedule.shift.start) %>
+<%= form.label :finish %>
+<%= form.select :finish, options_for_select(@times, selected=@schedule.shift.finish) %> -->

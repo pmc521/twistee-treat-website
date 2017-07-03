@@ -20,31 +20,19 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+    @times = Schedule::TIMES
   end
 
   # POST /schedules
   # POST /schedules.json
   def create
-    day = params[:schedule][:day]
-    month = params[:schedule][:month]
-    year = params[:schedule][:year]
-    shift1 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user1start], finish: params[:schedule][:user1finish])
-    shift2 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user2start], finish: params[:schedule][:user2finish])
-    shift3 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user3start], finish: params[:schedule][:user3finish])
-    shift4 = Shift.create(day: day, month: month, year: year, start: params[:schedule][:user4start], finish: params[:schedule][:user4finish])
+    params[:schedule][:users].each  do |user|
+      if user[:user] != ""
+        shift = Shift.create(date: user[:date], start: user[:start], finish: user[:finish])
+        Schedule.create(user: User.find(user[:user]), shift: shift)
+      end
+    end
 
-    if params[:schedule][:user1] != ""
-      Schedule.create(user: User.find(params[:schedule][:user1]), shift: shift1)
-    end
-    if params[:schedule][:user2] != ""
-      Schedule.create(user: User.find(params[:schedule][:user2]), shift: shift2)
-    end
-    if params[:schedule][:user3] != ""
-      Schedule.create(user: User.find(params[:schedule][:user3]), shift: shift3)
-    end
-    if params[:schedule][:user4] != ""
-      Schedule.create(user: User.find(params[:schedule][:user4]), shift: shift4)
-    end
     respond_to do |format|
       format.html { redirect_to "/schedules?start_date=#{params[:schedule][:start_date]}", notice: 'Schedule was successfully created.' }
     end
@@ -53,14 +41,11 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
+    Schedule.where(shift_id: params[:schedule][:shift_id]).destroy_all
+    Schedule.create(user_id: params[:schedule][:user_id], shift_id: params[:schedule][:shift_id])
     respond_to do |format|
-      if @schedule.update(schedule_params)
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to schedules_path, notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
-      else
-        format.html { render :edit }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
-      end
     end
   end
 
@@ -82,6 +67,6 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:user, :shift)
+      params.require(:schedule).permit(:user_id, :shift_id)
     end
 end
