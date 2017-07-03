@@ -1,0 +1,35 @@
+<h1>Editing Inventory</h1>
+<%= form_with(model: @inventory, local: true, action: 'update_multiple') do |form| %>
+  <% if @inventory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+      <ul>
+      <% @inventory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% inventory = [] %>
+
+  <% Inventory.where("created_at::date = ?", @inventory.created_at.to_date).each do |item| %>
+    <%= fields_for "inventory[]", inventory do |pf| %>
+      <%= item.product.name %>
+      <%= pf.hidden_field :inventory_id, value: item.id %>
+      <%= pf.hidden_field :product_id, value: item.product.id %>
+      <%= pf.hidden_field :user_id, value: current_user.id %>
+      <%= pf.hidden_field :number, value:  1 %>
+      <div class="field">
+        <%= pf.number_field :amount, class: :text_field, step: :any, value: item.amount %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @inventory %> |
+<%= link_to 'Back', inventories_path %>

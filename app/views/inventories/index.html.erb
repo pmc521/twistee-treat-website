@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inventories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Inventory</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @inventories.group_by{ |product| product.created_at.to_date }.each do |inventory| %>
+      <tr>
+        <td><%= link_to inventory[0].strftime("%m/%d/%y"), inventory_path(inventory[1][0].id)%></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inventory', new_inventory_path %></br>
+<%= link_to 'Products', products_path %>
