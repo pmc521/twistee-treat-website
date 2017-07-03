@@ -14,7 +14,7 @@
       </div>
     <% end %>
     <% users = [] %>
-    
+
     <%= form.hidden_field :start_date, :value => date %>
     <% 4.times do %>
       <%= form.hidden_field "users[][date]", :value => date %>
@@ -29,5 +29,3 @@
     <%= form.submit "Submit"%>
   </div>
 <% end %>
-
-<%= link_to 'Back', @schedules_path %>

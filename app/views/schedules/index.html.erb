@@ -18,8 +18,9 @@
     <% day_shifts.each do |schedule| %>
 
       <%= schedule.user.first_name %> <%= schedule.user.last_name %></br>
-      <%= schedule.shift.start %> - <%= schedule.shift.finish %>
-      <%= link_to 'edit', edit_schedule_path(schedule) %></br><hr>
+      <%= schedule.shift.start %> - <%= schedule.shift.finish %></br>
+      <%= link_to 'edit', edit_schedule_path(schedule) %>
+      |<%= link_to 'delete', schedule, method: :delete, data: { confirm: 'Are you sure?' }  %></br><hr>
     <% end %>
   <% end %>
 <% end %>

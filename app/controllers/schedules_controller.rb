@@ -41,19 +41,11 @@ class SchedulesController < ApplicationController
   # PATCH/PUT /schedules/1
   # PATCH/PUT /schedules/1.json
   def update
+    Schedule.where(shift_id: params[:schedule][:shift_id]).destroy_all
+    Schedule.create(user_id: params[:schedule][:user_id], shift_id: params[:schedule][:shift_id])
     respond_to do |format|
-      binding.pry
-      User.find(params[:id])
-      if @schedule.update(schedule_params)
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to schedules_path, notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
-        binding.pry
-
-      else
-        format.html { render :edit }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
-        binding.pry
-      end
     end
   end
 

@@ -3,9 +3,10 @@
 <%= form_with(model: @schedule, local: true) do |form| %>
 
 
-  <%= form.hidden_field :shift_id, value: @schedule.shift%>
 
-  <%= form.select :user_id, User.all, include_blank: true %>
+  <%= form.hidden_field :shift_id, value: @schedule.shift.id%>
+
+  <%= form.select :user_id, User.pluck(:first_name, :id), include_blank: true %>
   <div class="actions">
     <%= form.submit "Submit"%>
   </div>
