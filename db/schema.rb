@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626215327) do
+ActiveRecord::Schema.define(version: 20170703132105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "products", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "amount_needed", null: false
+    t.string "catagorie", default: "Misc", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "schedules", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -24,9 +32,7 @@ ActiveRecord::Schema.define(version: 20170626215327) do
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.string "day", null: false
-    t.string "month", null: false
-    t.string "year", null: false
+    t.string "date", null: false
     t.string "start", null: false
     t.string "finish", null: false
     t.datetime "created_at", null: false
