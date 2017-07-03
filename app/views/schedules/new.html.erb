@@ -1,6 +1,33 @@
 <h1>New Schedule</h1>
-<%= week_calendar number_of_weeks: 1 do |date| %>
-  <%= render 'form', schedule: @schedule, date: date %>
+<%= form_with(model: @schedule, local: true) do |form| %>
+  <%= week_calendar number_of_weeks: 1 do |date| %>
+    <%= date %>
+    <% if @schedule.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+        <ul>
+        <% @schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <% users = [] %>
+
+    <%= form.hidden_field :start_date, :value => date %>
+    <% 4.times do %>
+      <%= form.hidden_field "users[][date]", :value => date %>
+      <%= form.select "users[][user]", User.pluck(:first_name, :id), include_blank: true %></br>
+      <%= form.label :start %>
+      <%= form.select "users[][start]", options_for_select(@times, selected=1200) %>
+      <%= form.label :finish %>
+      <%= form.select "users[][finish]", options_for_select(@times, selected=530) %></br><hr>
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= form.submit "Submit"%>
+  </div>
 <% end %>
 
-<%= link_to 'Back', schedules_path %>
+<%= link_to 'Back', @schedules_path %>

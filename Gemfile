@@ -20,6 +20,7 @@ gem 'fog'
 gem 'net-ssh'
 gem 'jquery-rails'
 gem "simple_calendar"
+gem "rb-fsevent", "0.9.8"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

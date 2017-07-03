@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inventory:</strong></br>
+
+  <% Inventory.where("created_at::date = ?", @inventory.created_at.to_date).each do |product| %>
+    <%= product.amount %>
+    <%= product.product.name %></br>
+  <% end %>
+
+</p>
+
+<p>
+  <strong>Order:</strong></br>
+
+  <% Inventory.where("created_at::date = ?", @inventory.created_at.to_date).each do |product| %>
+    <%= (product.product.amount_needed - product.amount).round %>
+    <%= product.product.name %></br>
+  <% end %>
+
+</p>
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>
