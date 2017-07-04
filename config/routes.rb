@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   resources :simple_calendar
   namespace :api do
     namespace :v1 do
-      resources :schedules
+      resources :users
+    end
+  end
+  namespace :api do
+    namespace :v1 do
+      resources :posts
     end
   end
 end
