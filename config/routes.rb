@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :inventories
+  resources :products
   resources :shifts
   resources :schedules
   root 'home#show'
