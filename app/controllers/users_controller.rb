@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     unless @user.destroyable_by?(current_user, @user)
       flash[:alert] = "You do not have permission to delete that user."
       redirect_to :root
-      binding.pry
     else
       schedule = Schedule.where(user_id: current_user)
       schedule.destroy_all

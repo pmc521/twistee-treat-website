@@ -1,12 +1,12 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Schedule from './components/Schedule';
+import Comments from './components/comments';
 
 
 $(function() {
   ReactDOM.render(
-    <h1></h1>,
-    document.getElementById('app')
+    <Comments />,
+    document.getElementById('comments')
   );
 });
