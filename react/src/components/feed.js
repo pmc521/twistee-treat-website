@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import User from './User';
-import Post from './Post';
+import User from './user';
+import Post from './post';
 
-class Comments extends Component {
+class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,12 +10,12 @@ class Comments extends Component {
       post: '',
       posts: []
     }
-    this.updatepost = this.updatepost.bind(this);
+    this.updatePost = this.updatePost.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  updatepost(event) {
-  this.setState({ post: event.target.value });
+  updatePost(event) {
+    this.setState({ post: event.target.value });
   }
 
   handleSubmit(event) {
@@ -27,9 +27,9 @@ class Comments extends Component {
       },
       success: function(data, success, xhr) {
         console.log(data)
-     }
+      }
     })
-   }
+  }
 
   retrieveUsers() {
     $.ajax({
@@ -49,6 +49,7 @@ class Comments extends Component {
       this.setState({ posts: data.reverse() });
     });
   }
+
   findUser(userId) {
     return this.state.users === userId;
   }
@@ -75,20 +76,19 @@ class Comments extends Component {
       );
     });
 
-debugger
     let post = this.state.posts.map(post => {
+      let user = users[users.findIndex(obj => obj.id == post.user_id)];
       return (
-        let user = users[users.findIndex(obj => obj.id == post.user_id)]
         <Post
         key={post.id}
         postId={post.id}
         body={post.body}
         userFirstName={user.first_name}
         userLastName={user.last_name}
+        users={users}
         />
       );
     });
-
 
     return (
       <div>
@@ -101,7 +101,7 @@ debugger
                     placeholder="Post"
                     type="text"
                     value={this.state.post}
-                    onChange={this.updatepost}
+                    onChange={this.updatePost}
                   />
                 </div>
               </label>
@@ -117,4 +117,4 @@ debugger
   }
 };
 
-export default Comments;
+export default Feed;

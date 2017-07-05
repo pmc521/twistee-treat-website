@@ -59,11 +59,27 @@
 #   user: user3,
 #   shift: shift3
 # )
-waterice = ['Cherry', 'Cotton Candy', 'Rainbow', 'Bubblegum', 'Chocolate', 'Root Beer', 'Lemon', 'Sugar Free', 'Mango', 'Special Flavor']
-waterice.each do |flavor|
-  Product.create(
-    name: flavor,
-    catagorie: 'Water Ice',
-    amount_needed: 3,
-  )
-end
+# waterice = ['Cherry', 'Cotton Candy', 'Rainbow', 'Bubblegum', 'Chocolate', 'Root Beer', 'Lemon', 'Sugar Free', 'Mango', 'Special Flavor']
+# waterice.each do |flavor|
+#   Product.create(
+#     name: flavor,
+#     catagorie: 'Water Ice',
+#     amount_needed: 3,
+#   )
+# end
+# user4 = User.create(
+#   first_name: 'user4',
+#   last_name: 'lastname',
+#   email: 'user4@email.com',
+#   phone_number: "2151234567",
+#   password: 'password',
+#   password_confirmation: 'password'
+# )
+# user5 = User.create(
+#   first_name: 'user5',
+#   last_name: 'lastname',
+#   email: 'user5@email.com',
+#   phone_number: "2151234567",
+#   password: 'password',
+#   password_confirmation: 'password'
+# )
