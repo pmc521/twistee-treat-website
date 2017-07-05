@@ -1,12 +1,12 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Comments from './components/comments';
+import Feed from './components/feed';
 
 
 $(function() {
   ReactDOM.render(
-    <Comments />,
+    <Feed />,
     document.getElementById('comments')
   );
 });
