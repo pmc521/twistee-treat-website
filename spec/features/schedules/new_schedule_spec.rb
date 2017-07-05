@@ -12,15 +12,11 @@ feature 'create new schedule' do
   )}
 
   scenario 'user creates schedule' do
-    
-  end
 
     sign_in_as(user)
 
     click_link "Schedule"
     click_link "New Schedule"
-binding.pry
-    select 'first', from: find("schedule[users[][user]]", match: :first)
 
   end
 end
