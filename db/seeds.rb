@@ -99,7 +99,7 @@ icecream.each do |flavor|
   )
 end
 
-misc = ["Spoons", "Pretzels", "Napkins", "Waffle Bowls", "sm. cones", "Lg. waffle cones", "med. cones", "Sm.  waffle cones", "lg. cones", "sugar cones"]
+misc = ["Spoons", "Pretzels", "Napkins", "Waffle Bowls", "Small cones", "Large waffle cones", "Medium cones", "Small waffle cones", "large cones", "Sugar Cones"]
 
 misc.each do |item|
   Product.create(
@@ -109,7 +109,7 @@ misc.each do |item|
   )
 end
 
-mix = ["Vanilla	", "Chocolate", "Yogurt", "Whipped cream", "Shake Mix"]
+mix = ["Vanilla", "Chocolate", "Yogurt", "Whipped cream", "Shake Mix"]
 
 misc.each do |item|
   Product.create(
@@ -119,7 +119,7 @@ misc.each do |item|
   )
 end
 
-candy = [ "Snickers",  "cookie dough", "Brownies", "M&M's",  "Oreo",  "Penut Butter Cups", "Heath bars", "butterfingers", "gummy worms", "Chocolate Pretzels"]
+candy = [ "Snickers",  "Cookie Dough", "Brownies", "M&M's",  "Oreo",  "Penut Butter Cups", "Heath Bars", "butterfingers", "Gummy Worms", "Chocolate Pretzels"]
 
 candy.each do |item|
   Product.create(
