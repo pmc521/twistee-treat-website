@@ -1,6 +1,10 @@
 class InventoriesController < ApplicationController
   before_action :set_inventory, only: [:show, :edit, :update, :destroy]
-
+  def delete_all
+    Inventory.where("created_at::date = ?", Inventory.where(id: params[:inventory_id])[0].created_at).destroy_all
+    flash[:notice] = "You have removed all results!"
+    redirect_to inventories_path
+  end
   # GET /inventories
   # GET /inventories.json
   def index
@@ -26,7 +30,7 @@ class InventoriesController < ApplicationController
   # POST /inventories.json
   def create
     params[:inventory].each do |p|
-      Inventory.create(amount: p[:amount], user_id: p[:user_id].to_i, product_id: p[:product_id].to_i, number: p[:number].to_i)
+      Inventory.create(amount: p[:amount].to_d, user_id: p[:user_id].to_i, product_id: p[:product_id].to_i, number: p[:number].to_i)
     end
     respond_to do |format|
       format.html { redirect_to inventories_path, notice: 'Inventory was successfully created.' }

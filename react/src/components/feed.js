@@ -15,6 +15,7 @@ class Feed extends Component {
   }
 
   updatePost(event) {
+    event.preventDefault();
     this.setState({ post: event.target.value });
   }
 
@@ -57,7 +58,6 @@ class Feed extends Component {
   componentDidMount() {
     this.retrieveUsers();
     this.retrievePosts();
-    setInterval(this.retrieveFoods, 5000)
   }
 
   render() {

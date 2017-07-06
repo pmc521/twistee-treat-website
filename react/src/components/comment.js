@@ -16,7 +16,6 @@ class Comment extends Component{
   }
 
   retrieveComments() {
-    event.preventDefault();
     $.ajax({
       url: '/api/v1/comments',
       contentType: 'application/json'
@@ -63,6 +62,11 @@ class Comment extends Component{
     );
     return(
       <div className="row">
+        <div className="row">
+          <div className="small-11 small-centered columns medium-11 medium-centered columns large-11 large-centered columns">
+            {filteredcomments}
+          </div>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="small-12 small-centered columns medium-12 medium-centered columns large-12 large-centered columns">
             <input
@@ -74,11 +78,6 @@ class Comment extends Component{
             />
           </div>
         </form>
-        <div className="row">
-          <div className="small-11 small-centered columns medium-11 medium-centered columns large-11 large-centered columns">
-            {filteredcomments}
-          </div>
-        </div>
       </div>
     )
   }

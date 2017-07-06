@@ -10,11 +10,11 @@
         <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
   </div>
 
-  <table role="grid" class="schedule-week" class="large-12 small-12">
-    <thead class="large-1">
+  <table>
+    <thead>
       <tr>
         <% date_range.slice(0, 7).each_with_index do |day, i| %>
-          <th class=" large-1 ">
+          <th>
               <%= t('date.abbr_day_names')[day.wday] %></br>
               <%= date_range[i] %>
           </th>
