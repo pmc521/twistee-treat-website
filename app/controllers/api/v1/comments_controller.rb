@@ -1,6 +1,11 @@
 class Api::V1::CommentsController < ApplicationController
+
   def index
     render json: Comment.all
+  end
+
+  def destroy
+    Comment.where(id: params[:id]).destroy_all
   end
 
   def create
