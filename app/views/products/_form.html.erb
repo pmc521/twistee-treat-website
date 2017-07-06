@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <% @catagories = Product::CATAGORIES%>
+  <% @catagories = Product::CATAGORIES %>
 
   <div class="field">
     <%= form.label :name %>
@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= form.label :catagorie %>
-    <%= form.select :catagorie, options_for_select(@catagories), include_blank: true %>
+    <%= form.select :catagorie, options_for_select(@catagories), selected: product.catagorie %>
   </div>
 
   <div class="field">

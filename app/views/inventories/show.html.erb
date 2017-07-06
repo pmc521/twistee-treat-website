@@ -1,24 +1,37 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="float-left column small-12 column medium-6 columns large-6 columns">
 
-<p>
-  <strong>Inventory:</strong></br>
+    <strong><p>Inventory:</p></strong></br>
 
-  <% Inventory.where("created_at::date = ?", @inventory.created_at.to_date).each do |product| %>
-    <%= product.amount %>
-    <%= product.product.name %></br>
+    <% Inventory.where("created_at::date = ?", @inventory.created_at.to_date).each do |product| %>
+      <p>
+        <%= product.amount %>
+        <%= product.product.name %></br>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="float-right column small-12 column medium-6 columns large-6 columns">
+
+  <strong><p>Order:</p></strong></br>
+
+  <% @inventory = Inventory.where("created_at::date = ?", @inventory.created_at.to_date) %>
+  <% @inventory.each do |product| %>
+    <p>
+      <%= (product.product.amount_needed - product.amount).round %>
+      <%= product.product.name %></br>
+    </p>
   <% end %>
 
-</p>
+</div>
 
-<p>
-  <strong>Order:</strong></br>
+</div>
 
-  <% Inventory.where("created_at::date = ?", @inventory.created_at.to_date).each do |product| %>
-    <%= (product.product.amount_needed - product.amount).round %>
-    <%= product.product.name %></br>
-  <% end %>
+<div class="row">
 
-</p>
-
-<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
-<%= link_to 'Back', inventories_path %>
+  <%= link_to 'Edit', edit_inventory_path(@inventory) %>
+  | <%= link_to 'Back', inventories_path %>
+  |
+  <%= link_to "Delete", inventory_delete_all_path(@inventory[0]), :method => :get %>
+</div>

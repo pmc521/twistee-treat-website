@@ -16,6 +16,11 @@
 
  */
  @import "foundation_and_overrides";
+
+ .underline {
+   text-decoration: underline $twisteeblue;
+   color: $twisteeblue
+}
  * {
    font-family: 'Comfortaa', cursive;
    font-weight: 700;

@@ -59,14 +59,8 @@
 #   user: user3,
 #   shift: shift3
 # )
-# waterice = ['Cherry', 'Cotton Candy', 'Rainbow', 'Bubblegum', 'Chocolate', 'Root Beer', 'Lemon', 'Sugar Free', 'Mango', 'Special Flavor']
-# waterice.each do |flavor|
-#   Product.create(
-#     name: flavor,
-#     catagorie: 'Water Ice',
-#     amount_needed: 3,
-#   )
-# end
+
+
 # user4 = User.create(
 #   first_name: 'user4',
 #   last_name: 'lastname',
@@ -83,3 +77,54 @@
 #   password: 'password',
 #   password_confirmation: 'password'
 # )
+
+
+waterice = ['Cherry', 'Cotton Candy', 'Rainbow', 'Bubblegum', 'Chocolate', 'Root Beer', 'Lemon', 'Sugar Free', 'Mango', 'Special Flavor']
+
+waterice.each do |flavor|
+  Product.create(
+    name: flavor,
+    catagorie: 'Water Ice',
+    amount_needed: 3,
+  )
+end
+
+icecream = ["Chocolate", "Mint", "Vanilla", "Coffee", "Strawberry", "Butter Pecan", "Cookies & Cream", "Special flavor"]
+
+icecream.each do |flavor|
+  Product.create(
+    name: flavor,
+    catagorie: 'Ice-Cream',
+    amount_needed: 3,
+  )
+end
+
+misc = ["Spoons", "Pretzels", "Napkins", "Waffle Bowls", "sm. cones", "Lg. waffle cones", "med. cones", "Sm.  waffle cones", "lg. cones", "sugar cones"]
+
+misc.each do |item|
+  Product.create(
+    name: item,
+    catagorie: 'Misc',
+    amount_needed: 2,
+  )
+end
+
+mix = ["Vanilla	", "Chocolate", "Yogurt", "Whipped cream", "Shake Mix"]
+
+misc.each do |item|
+  Product.create(
+    name: item,
+    catagorie: 'Mix',
+    amount_needed: 12,
+  )
+end
+
+candy = [ "Snickers",  "cookie dough", "Brownies", "M&M's",  "Oreo",  "Penut Butter Cups", "Heath bars", "butterfingers", "gummy worms", "Chocolate Pretzels"]
+
+candy.each do |item|
+  Product.create(
+    name: item,
+    catagorie: 'Candy',
+    amount_needed: 2,
+  )
+end
