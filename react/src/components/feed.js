@@ -12,6 +12,7 @@ class Feed extends Component {
     }
     this.updatePost = this.updatePost.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDeletePost = this.handleDeletePost.bind(this);
   }
 
   updatePost(event) {
@@ -32,6 +33,18 @@ class Feed extends Component {
     })
   }
 
+  handleDeletePost(event) {
+    let id = event.target.value;
+    console.log(id);
+    $.ajax({
+      url: '/api/v1/posts/' + id,
+      method: 'DELETE',
+      success(response) {
+          console.log('successfully removed item')
+      }
+    })
+  }
+
   retrieveUsers() {
     $.ajax({
       url: '/api/v1/users',
@@ -41,6 +54,7 @@ class Feed extends Component {
       this.setState({ users: data });
     });
   }
+
   retrievePosts() {
     $.ajax({
       url: '/api/v1/posts',
@@ -85,7 +99,9 @@ class Feed extends Component {
         body={post.body}
         userFirstName={user.first_name}
         userLastName={user.last_name}
+        userAvatar={user.avatar.url}
         users={users}
+        handleDeletePost={this.handleDeletePost}
         />
       );
     });

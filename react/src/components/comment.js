@@ -9,7 +9,9 @@ class Comment extends Component{
     }
     this.updateComment = this.updateComment.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDeleteComment = this.handleDeleteComment.bind(this);
   }
+
   updateComment(event) {
     event.preventDefault();
     this.setState({ comment: event.target.value });
@@ -37,6 +39,18 @@ class Comment extends Component{
       }
     })
   }
+
+  handleDeleteComment(event) {
+    let id = event.target.value;
+    $.ajax({
+      url: '/api/v1/comments/' + id,
+      method: 'DELETE',
+      success(response) {
+        console.log('successfully removed item')
+      }
+    })
+  }
+
   componentDidMount() {
     this.retrieveComments();
   }
@@ -49,11 +63,27 @@ class Comment extends Component{
           let user = users[users.findIndex(obj => obj.id == comment.user_id)];
           return (
             <div className="card">
-              <div className="card-section">
-                {user.first_name} {user.last_name}
+              <div className="row">
+                <div className="card-section">
+                  <div className="float-left">
+                    <img
+                      src={user.avatar.url}
+                      id="profile-picture"
+                      style={{padding: 10, height: 50}}
+                     />
+                    {user.first_name} {user.last_name}
+                  </div>
+                  <form className="float-right">
+                    <button type="submit" name="Delete" value={comment.id} onClick={this.handleDeleteComment} >
+                      Delete
+                    </button>
+                  </form>
+                </div>
               </div>
-              <div className="card-section">
-                {comment.body}
+              <div className="row">
+                <div className="card-section">
+                  {comment.body}
+                </div>
               </div>
             </div>
           )

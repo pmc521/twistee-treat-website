@@ -6,11 +6,27 @@ class Post extends Component{
   render() {
     return(
       <div className="card">
-        <div className="card-section">
-          {this.props.userFirstName} {this.props.userLastName}
+        <div className="row">
+          <div className="card-section">
+            <div className="float-left">
+              <img
+                src={this.props.userAvatar}
+                id="profile-picture"
+                style={{padding: 10, height: 50}}
+               />
+              {this.props.userFirstName} {this.props.userLastName}
+            </div>
+            <form className="float-right">
+              <button type="submit" name="Delete" value={this.props.postId} onClick={this.props.handleDeletePost} >
+                Delete
+              </button>
+            </form>
+          </div>
         </div>
-        <div className="card-section">
-          {this.props.body}
+        <div className="row">
+          <div className="card-section">
+            {this.props.body}
+          </div>
         </div>
         <div className="card-section">
           <Comment
