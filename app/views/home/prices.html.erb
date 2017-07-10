@@ -1,20 +1,27 @@
 
 
-<div class="small-12 columns medium-9 columns large-8 large-centered columns">
-  <% Product.all.group_by{ |product| product.catagorie }.each do |catagorie, products| %>
+</br></br><div class="card small-12 columns medium-9 columns large-8 large-centered columns">
+  <% Price.all.group_by{ |price| price.catagorie }.each do |catagorie, price| %>
 
 
-    <div class="row">
-      <% if catagorie == "Water Ice" || catagorie == "Ice-Cream" || catagorie == "Candy"  %>
     </br><h1 class="underline"><%= catagorie %></h1></br>
 
-        <% products.each do |product| %>
+    <div class="row">
+      <% price.group_by{ |price| price.sub_catagorie }.each do |sub_catagorie, prices| %>
+      <% if sub_catagorie != nil %>
+      <div class="row large-10 centered columns">
+        </br><h3 class="underline"><%= sub_catagorie %></h3></br>
+      </div>
+      <% end %>
+      <div class="row small-6 columns medium-3 columns large-12 columns">
+        <% prices.each do |price| %>
         <div class="flavors float-left small-6 columns medium-3 columns large-2 columns">
-          <%= product.name %></br>
+          <%= price.size %>
+          $<%= number_with_precision(price.price, precision: 2) %></br>
         </div>
         <% end %>
+      </div>
       <% end %>
 
-    </div>
-  <% end %>
+  <% end %></br></br></br>
 </div>

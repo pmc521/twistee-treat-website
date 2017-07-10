@@ -1,0 +1,14 @@
+
+</br></br>
+<div class="medium-4 medium-centered columns">
+  <div class="card">
+    <div class="card-section">
+      <% @users.each do |user| %>
+      <h3><%= user.first_name %> <%= user.last_name %></h3>
+      <h6><%= link_to user.first_name, user_path(user.id) %></h6>
+      <h6> Email: <%= user.email %></h6>
+      <h6> Phone: <%=" (#{user.phone_number[0..2]}) #{user.phone_number[3..5]}-#{user.phone_number[6..9]}" %></h6>
+      <% end %>
+    </div></br>
+  </div></br>
+</div>
