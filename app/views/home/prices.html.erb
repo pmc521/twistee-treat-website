@@ -1,0 +1,20 @@
+
+
+<div class="small-12 columns medium-9 columns large-8 large-centered columns">
+  <% Product.all.group_by{ |product| product.catagorie }.each do |catagorie, products| %>
+
+
+    <div class="row">
+      <% if catagorie == "Water Ice" || catagorie == "Ice-Cream" || catagorie == "Candy"  %>
+    </br><h1 class="underline"><%= catagorie %></h1></br>
+
+        <% products.each do |product| %>
+        <div class="flavors float-left small-6 columns medium-3 columns large-2 columns">
+          <%= product.name %></br>
+        </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  <% end %>
+</div>

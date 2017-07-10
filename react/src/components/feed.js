@@ -35,7 +35,6 @@ class Feed extends Component {
 
   handleDeletePost(event) {
     let id = event.target.value;
-    console.log(id);
     $.ajax({
       url: '/api/v1/posts/' + id,
       method: 'DELETE',
@@ -90,7 +89,8 @@ class Feed extends Component {
       );
     });
 
-    let post = this.state.posts.map(post => {
+    let posts = this.state.posts
+    let post = posts.map(post => {
       let user = users[users.findIndex(obj => obj.id == post.user_id)];
       return (
         <Post
@@ -114,7 +114,7 @@ class Feed extends Component {
                 <div className="small-12 columns medium-6 columns large-6 large-centered columns">
                   <input
                     className="post"
-                    placeholder="Post"
+                    placeholder="New Post"
                     type="text"
                     value={this.state.post}
                     onChange={this.updatePost}

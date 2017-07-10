@@ -7,7 +7,7 @@ class Post extends Component{
     return(
       <div className="card">
         <div className="row">
-          <div className="card-section">
+          <div className="card-section small-11 small-centered columns medium-11 medium-centered columns large-11 large-centered columns">
             <div className="float-left">
               <img
                 src={this.props.userAvatar}
@@ -24,7 +24,7 @@ class Post extends Component{
           </div>
         </div>
         <div className="row">
-          <div className="card-section">
+        <div className="card-section small-11 small-centered columns medium-11 medium-centered columns large-11 large-centered columns">
             {this.props.body}
           </div>
         </div>

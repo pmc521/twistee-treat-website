@@ -15,15 +15,16 @@
  *= require foundation_and_overrides
 
  */
- @import "foundation_and_overrides";
+
+@import "foundation_and_overrides";
 
  .underline {
    text-decoration: underline $twisteeblue;
-   color: $twisteeblue
+   color: $twisteeblue;
 }
  * {
-   font-family: 'Comfortaa', cursive;
-   font-weight: 700;
+   font-family: 'Catamaran', sans-serif;
+   font-weight: 800;
    padding-left: 10px;
  }
 
@@ -34,29 +35,14 @@
  }
 
  h2, h3 {
-   font-family: 'Comfortaa', cursive;
+   font-family: 'Catamaran', sans-serif;
    font-weight: 700;
    padding-left: 10px;
  }
 
  body {
-  //  background-image: url('./pink-with-sprinkles.jpeg');
-  //  /* Full height */
-  //  height: 100%;
-  //  /* Center and scale the image nicely */
-  //  background-position: center;
-  //  background-repeat: no-repeat;
-  //  background-size: cover;
-
   background-color: twisteepink;
 }
- th {
-
- }
-
- .menu {
-
- }
 
  ul.menu {
    list-style-type: none;
@@ -64,9 +50,13 @@
  }
 
  .menu-text {
-   font-family: 'Passion One', cursive;
-   font-weight: 700;
    font-size: 40px;
+   letter-spacing: 2px;
+   background: none;
+   color: $twisteepink !important;
+ }
+ .menu {
+   font-size: 25px;
    letter-spacing: 2px;
    background: none;
    color: $twisteepink !important;
@@ -86,30 +76,15 @@
    color: $twisteepink;
  }
 
- li.breadcrumbs {
-   font-family: 'Comfortaa', cursive;
-   font-weight: 700;
- }
-
  p {
-   font-family: 'Passion One', cursive;
-   font-weight: 400;
+   font-family: 'Catamaran', sans-serif;
    font-size: 25px;
  }
-
- h1 {
-   font-family: 'Comfortaa', cursive;
-   font-weight: 700;
+ td {
+   font-family: 'Catamaran', sans-serif;
+   font-size: 20px;
  }
 
-
- .pagination li {
-   display: inline;
-   color: blue;
- }
- .pagination{
-   text-align: center;
- }
  .profile-pic-large{
    max-width:100%;
    max-height:100%;
@@ -118,6 +93,23 @@
    max-width:25%;
    max-height:25%;
  }
- button{
-   color: #d9d9d9;
+ .flavors{
+   padding-top: 20px;
+   font-size: 20px;
+ }
+ .schedule{
+   text-align: center;
+ }
+ .cone{
+   max-width: 50px;
+ }
+ .calendar-heading{
+   font-size: 20px;
+ }
+ .photo{
+  max-width: 100% ;
+ }
+
+ li{
+   font-weight: bold;
  }

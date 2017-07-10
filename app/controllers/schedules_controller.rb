@@ -30,11 +30,16 @@ class SchedulesController < ApplicationController
       if user[:user] != ""
         shift = Shift.create(date: user[:date], start: user[:start], finish: user[:finish])
         Schedule.create(user: User.find(user[:user]), shift: shift)
+        @date = user[:date]
       end
     end
 
     respond_to do |format|
-      format.html { redirect_to "/schedules?start_date=#{params[:schedule][:start_date]}", notice: 'Schedule was successfully created.' }
+      if params[:schedule][:start_date] == nil
+        format.html { redirect_to "/schedules?", notice: 'Schedule was successfully created.' }
+      else
+        format.html { redirect_to "/schedules?start_date=#{@date}", notice: 'Schedule was successfully created.' }
+      end
     end
   end
 

@@ -1,0 +1,36 @@
+
+<% days = {Monday: "1:00 - 9:00", Tuesday: "1:00 - 9:00", Wenesday: "1:00 - 9:00", Thursday: "1:00 - 9:00", Friday: "1:00 - 10:00", Saturday: "12:00 - 10:00", Sunday: "12:00 - 10:00"} %>
+
+</br></br>
+<div class="row"></br>
+  <div class="float-left schedule small-12 columns medium-9 medium-centered columns large-4 large-centered columns">
+    <div class="card">
+      <div class="schedule small-12 columns medium-9 medium-centered columns large-8 large-centered columns"></br>
+        <h3 class="schedule underline">Store Hours</h3>
+      </div>
+      <div class="row">
+        <% days.each do |day, hours| %>
+          <div class="row">
+            <hr><h5 class="schedule float-left small-6 columns large-6 columns underline"><%= day %></h5>
+            <div class="schedule float-right small-6 columns medium-3 columns large-6 columns">
+              <%= hours %>
+            </div>
+          </div>
+        <% end %></br>
+      </div>
+    </div>
+  </div>
+
+  <div class="float-right schedule card large-6 columns"></br>
+    <h3 class="schedule underline">Location</h3></br>
+    <div class="small-11 columns medium-9 medium-centered columns large-12 large-centered columns" >
+      <iframe
+        width="500"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC1l2LQtVPjOcJ1Uk-YLSF1XqohqCOLZyc&q=twistee+treat+philadelphia"
+        allowfullscreen>
+      </iframe></br></br></br></br>
+    </div>
+  </div>
+</div>
