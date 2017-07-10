@@ -30,7 +30,7 @@
 
 <div class="row">
 
-  <%= link_to 'Edit', edit_inventory_path(@inventory) %>
+  <%= link_to 'Edit', edit_inventory_path(@inventory[0]) %>
   | <%= link_to 'Back', inventories_path %>
   |
   <%= link_to "Delete", inventory_delete_all_path(@inventory[0]), :method => :get %>

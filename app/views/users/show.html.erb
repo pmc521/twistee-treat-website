@@ -6,7 +6,7 @@
       <%= image_tag (@user.avatar) %>
       <h3><%= @user.first_name %> <%= @user.last_name %></h3>
       <h6> Email: <%= @user.email %></h6>
-      <h6> Phone: <%= @user.phone_number %></h6>
+      <h6> Phone: <%=" (#{@user.phone_number[0..2]}) #{@user.phone_number[3..5]}-#{@user.phone_number[6..9]}"  %></h6>
       <button class="button"><%= link_to "Delete Account", user_path(current_user), data: {:confirm => 'Are you really sure?'}, :method => :delete  %></button></br>
       <button class="button"><%= link_to "Edit Profile", edit_user_registration_path %></button>
     </div>

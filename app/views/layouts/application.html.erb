@@ -45,6 +45,18 @@
         </ul>
       </div>
     </div>
+    <div class="top-bar">
+      <div class="large-12 large-centered columns">
+        <ul class="submenu float-centered row large-12 large-centered columns">
+          <li class="large-2 columns">&nbsp;</li>
+          <li class="large-2 columns"><%= link_to 'Home', root_path %></li>
+          <li class="large-2 columns"><%= link_to 'Prices', prices_path %></li>
+          <li class="large-2 columns"><%= link_to 'Flavors', flavors_path %></li>
+          <li class="large-2 columns"><%= link_to 'About', about_path %></li>
+          <li class="large-2 columns"></li>
+        </ul>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
