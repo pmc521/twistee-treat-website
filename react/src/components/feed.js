@@ -16,7 +16,6 @@ class Feed extends Component {
   }
 
   updatePost(event) {
-    event.preventDefault();
     this.setState({ post: event.target.value });
   }
 
