@@ -13,7 +13,6 @@ class Comment extends Component{
   }
 
   updateComment(event) {
-    event.preventDefault();
     this.setState({ comment: event.target.value });
   }
 

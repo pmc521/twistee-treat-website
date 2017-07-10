@@ -16,11 +16,10 @@
 
  */
 
-@import "foundation_and_overrides";
 
  .underline {
-   text-decoration: underline $twisteeblue;
-   color: $twisteeblue;
+   text-decoration: underline #12c1db;
+   color: #12c1db;
 }
  * {
    font-family: 'Catamaran', sans-serif;
@@ -41,16 +40,16 @@
  }
 
  body {
-  background-color: twisteepink;
+  background-color: pink;
 }
 
  ul.menu {
    list-style-type: none;
-   background: $twisteeblue;
+   background: #12c1db;
  }
  ul.submenu {
    list-style-type: none;
-   background: $twisteeblue;
+   background: #12c1db;
    display: block;
    margin: auto;
  }
@@ -59,33 +58,33 @@
    font-size: 30px;
    letter-spacing: 2px;
    background: none;
-   color: $twisteepink !important;
+   color: pink !important;
  }
  .menu {
    font-size: 25px;
    letter-spacing: 2px;
    background: none;
-   color: $twisteepink !important;
+   color: pink !important;
  }
  .submenu {
    font-size: 15px;
    letter-spacing: 1px;
    background: none;
-   color: $twisteepink !important;
+   color: pink !important;
  }
 
  .top-bar {
-   background: $twisteeblue;
+   background: #12c1db;
    width: 95%;
    margin-left: auto;
    margin-right: auto;
  }
 
  .top-bar-left {
-   color: $twisteepink;
+   color: pink;
  }
  .top-bar-right {
-   color: $twisteepink;
+   color: pink;
  }
 
  p {
