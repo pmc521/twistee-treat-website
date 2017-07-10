@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get "/flavors", to: "home#flavors", as: "flavors"
+  get "/prices", to: "home#prices", as: "prices"
+  get "/about", to: "home#about", as: "about"
   resources :inventories
+  resources :photos, only: [:index, :new, :create]
   resources :products
   resources :shifts
   resources :schedules

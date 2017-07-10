@@ -1,4 +1,26 @@
 
-<div id='app'>
+<div class="row">
+  <div class="row float-left small-12 columns medium-3 columns large-12 columns" >
+  <% link_to 'Flavors', flavors_path %>
+  </div>
+  <div class="row float-left small-12 columns medium-3 columns large-12 columns" >
+    <% link_to 'Prices', prices_path %>
+  </div>
+  <div class="row float-left small-12 columns medium-3 columns large-12 columns" >
+    <% link_to 'About', about_path %>
+  </div>
+</div>
 
+
+
+
+</br></br></br><div class="large-6 large-centered columns">
+  <div class="large-8 large-centered columns">
+    <% @photos.reverse.each do |photo| %>
+      <div class="photo card"  >
+        <%= image_tag photo.photo %>
+      </div></br>
+
+    <% end %>
+  </div>
 </div>

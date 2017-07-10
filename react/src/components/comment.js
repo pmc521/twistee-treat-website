@@ -62,7 +62,7 @@ class Comment extends Component{
         if (comment.post_id == this.props.postId) {
           let user = users[users.findIndex(obj => obj.id == comment.user_id)];
           return (
-            <div className="card">
+            <div className=""><hr></hr>
               <div className="row">
                 <div className="card-section">
                   <div className="float-left">

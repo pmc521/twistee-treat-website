@@ -9,6 +9,7 @@
     <%= csrf_meta_tags %>
 
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700|Passion+One:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:400,500,700,800" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" />
     <script src="https://use.fontawesome.com/4401ab1d42.js"></script>
   </head>
@@ -16,9 +17,12 @@
   <body>
     <div class="top-bar">
       <div class="top-bar-left">
-          <ul class="menu">
-            <li class="menu-text"><%= link_to 'Twistee Treats', root_path %></li>
-          </ul>
+        <div class="float-left cone">
+          <% if Photo.all.where(name: "Ice-Cream Cone")[0] != nil %>
+            <%= image_tag Photo.all.where(name: "Ice-Cream Cone")[0].photo %>
+          <% end %>
+        </div>
+        <div class="bold underline float-right menu-text"><%= link_to 'Twistee Treats', root_path %></div>
       </div>
 
       <div class="top-bar-right">
